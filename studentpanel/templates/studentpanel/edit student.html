@@ -1,0 +1,17 @@
+{% extend 'studentpanel/base.html' %}
+{%load crispy_form_tags %}
+{% block content %}
+<h1>Edit - {{student_data.name}}</h1>
+
+        <div class="container">
+            <form method="POST">
+                {% csrf_token%}
+                {{form|crispy}}
+                <input type="submit" class="btn btn-primary">
+                <input type="button" class="btn btn-danger">
+                {% if message %} 
+                {{message}}
+                {% endif %}
+
+            </form>
+{% endblock content %}

@@ -1,0 +1,71 @@
+<html></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    {%load crispy_forms_tags%}
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LITTLE STARS JUNIOR SCHOOL{% endblock title %} </title>
+   link rel ="stylesheet" href= "{% static 'css/bootstrap.min.css' %}"
+</head>
+<body>
+    <style type= "Text/css">
+        .sidenav{
+            height:100%;
+            width:160px;
+            position: fixed;
+            z-index:1;
+            top:0;
+            left:0;
+            background-color:#f0fff0;
+            overflow-x: :hidden;
+            padding-top:20px;
+            
+
+            .sidenav a{
+                padding:6px 8px 6px 16px:
+                text decoration: none;
+                font-size:50px;
+                color:#111
+                display:block;
+            }
+            #sidenav a:hover{
+                color:#f1f1f1;
+            }
+            .main{
+                margin-left:160px;
+                padding:0px 30px;
+            }
+        }
+         </style>
+
+
+
+
+
+<div class="sidenav">
+   <p> <a href="{%url 'dashboard_page'%}">Dashboard</a></p>
+   <p> <a href="{%url 'bursar_page'%}">Bursar</a></p>
+   <p> <a href="{%url 'index_page'%}">index</a></p>
+   <p> <a href="{%url 'new student_page'%}">new student</a></p>
+   <p> <a href="{%url 'edit_student_page'%}">edit student</a></p>
+  
+  
+   
+</div>
+<div id="content",name="content",class="main">
+    
+    
+    
+        <form method= "POST">
+            {% csrf_token %}
+            {{form|crispy}}
+        </form>
+    
+    
+    
+</div>
+</body>
+</html>
